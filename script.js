@@ -29,14 +29,17 @@ function convertTemperature(temperature, unit) {
 // const userUnit = prompt("Elije la unidad (C o F)").toUpperCase();
 // console.log(convertTemperature(userTemperature, userUnit))
 
-function generatePassword(letras_numbers, caracteres) {
+function generatePassword() {
     let pass = "";
-    let str = "ABCDEFGhijkl0123456789!#$%&"
-    let longitud = parseInt(prompt("Dime la longitud de la contraseña"))
-    for (let i = 1; i <= longitud; i++) {
-        let char = Math.floor(Math.random() * str.length + 1)
-        pass += str.charAt(char)
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&"; // Incluye caracteres en minúsculas
+    let longitud = parseInt(prompt("Dime la longitud de la contraseña"));
+
+    for (let i = 0; i < longitud; i++) { // Inicia el bucle desde 0 y usa '<' en lugar de '<='
+        let char = Math.floor(Math.random() * str.length); // Corregir esta línea
+        pass += str.charAt(char);
     }
+
     return pass;
-};
-console.log(generatePassword())
+}
+
+console.log(generatePassword());
